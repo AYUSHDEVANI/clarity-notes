@@ -4,6 +4,19 @@
 
 ---
 
+## 🎥 Demo Video
+
+Check out the demo of Clarity Notes in action:
+
+<!-- ![Clarity Notes Demo](assets/Clarity-notes-2.mp4) -->
+
+<video width="600" controls>
+  <source src="assets/demo_video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+---
+
 ## 📝 Project Overview
 
 Clarity Notes is an **AI-powered meeting notes application** designed to:
@@ -187,6 +200,52 @@ npm start
 
 ---
 
+## 🔔 Enabling Slack Notifications
+
+Clarity Notes can optionally send meeting summaries and action items to your Slack workspace. Follow these steps to set up Slack notifications:
+
+### **Step 1: Create a Slack App**
+1. Go to [Slack API: Your Apps](https://api.slack.com/apps).  
+2. Click **Create New App → From scratch**.  
+3. Name your app (e.g., `ClarityNotesBot`) and choose your Slack workspace.  
+4. Click **Create App** ✅
+
+---
+
+### **Step 2: Add Bot to Workspace**
+1. Navigate to **OAuth & Permissions** in your app settings.  
+2. Scroll to **Scopes → Bot Token Scopes** and add:  
+   - `chat:write` → To send messages.  
+   - `channels:read` → To read channel list (optional).  
+   - `channels:join` → To let the bot join channels automatically.  
+3. Click **Install to Workspace** and **Allow**.  
+4. You will get a **Bot User OAuth Token** starting with `xoxb-xxxxxxxx`.  
+   > This is your `SLACK_BOT_TOKEN`.
+
+---
+
+### **Step 3: Add Bot to a Channel**
+1. Open Slack and go to the channel where you want notifications.  
+2. Type the command:  
+
+```text
+/invite @ClarityNotesBot
+```
+3. Press Enter. The bot can now send messages to this channel.
+
+### **Step 4: Set Environment Variables (.env)**
+In your backend project directory, create or update the .env file:
+```bash
+# Slack Bot configuration
+SLACK_BOT_TOKEN=xoxb-your-token-here
+
+# AI / LLM Configuration
+GROQ_API_KEY=your-groq-api-key-here
+
+```
+
+
+
 ## 🤝 Contributing
 
 - Fork the repository.
@@ -204,7 +263,7 @@ This project is licensed under the MIT License.
 
 ## 📧 Contact
 
-For questions or support, contact Karma Koder at your-email@example.com.
+For questions or support, contact Ayush Devani at ayushdevani0018@gmail.com.
 
 ---
 
