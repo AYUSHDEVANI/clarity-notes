@@ -8,12 +8,12 @@
 
 Check out the demo of Clarity Notes in action:
 
-<!-- ![Clarity Notes Demo](assets/Clarity-notes-2.mp4) -->
+![Clarity Notes Demo](assets/demo.gif)
 
-<video width="600" controls>
+<!-- <video width="600" controls>
   <source src="assets/demo_video.mp4" type="video/mp4">
   Your browser does not support the video tag.
-</video>
+</video> -->
 
 ---
 
