@@ -106,28 +106,17 @@ instance/     # Database (gitignored)
 9. **Real-Time Q&A** 💬 → Ask questions from AI assistant  
 
 ## **Flow Diagram (Textual Representation):**
+
 ```mermaid
-[Audio Upload / Real-Time Recording]
-     |
-     v
-[Transcription]
-     |
-     v
-[Generate Custom Prompts]
-     |
-     v
-[Summarization]
-     |
-     v
-[Action Extraction]
-     |
-    +--> [Slack Notification]
-     |
-     v
-[Save Output]
-     |
-     v
-[Analytics & Dashboards] <--> [Real-Time Q&A Chat]
+flowchart TD
+    A[Audio Upload / Real-Time Recording] --> B[Transcription]
+    B --> C[Generate Custom Prompts]
+    C --> D[Summarization]
+    D --> E[Action Extraction]
+    E --> F[Save Output]
+    E --> G[Slack Notification]
+    F --> H[Analytics & Dashboards]
+    H <--> I[Real-Time Q&A Chat]
 ```
 
 ---
