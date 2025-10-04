@@ -7,6 +7,10 @@ function Results({ results }) {
     console.log("Results.js: Results received:", results);
   }, [results]);
 
+  
+
+
+
   if (!results) {
     return (
       <div className="card p-4 text-center" style={{ borderRadius: 16 }}>
@@ -16,26 +20,48 @@ function Results({ results }) {
   }
 
   // Clean Markdown-like symbols
-  const cleanText = (text) => (text ? text.trim() : "");
+  // const cleanText = (text) => (text ? text.trim() : "");
 
   // Parse action items
   const parseActionItems = (actionsText) => {
-    if (!actionsText) return [];
-    let regex =
-      /\* \*\*Description:\*\* (.*?)\s*\* \*\*Assignee:\*\* (.*?)\s*\* \*\*Deadline:\*\* (.*?)\s*\* \*\*Priority:\*\* (.*?)(?=\s*\* \*\*Description:\*\*|$)/gs;
-    let matches = [...actionsText.matchAll(regex)];
-    if (matches.length === 0) {
-      regex =
-        /Description:?\s*(.*?)\nAssignee:?\s*(.*?)\nDeadline:?\s*(.*?)\nPriority:?\s*(.*?)(?=\nDescription:|$)/gs;
-      matches = [...actionsText.matchAll(regex)];
-    }
-    return matches.map((match) => ({
-      description: cleanText(match[1]),
-      assignee: cleanText(match[2]),
-      deadline: cleanText(match[3]),
-      priority: cleanText(match[4]),
-    }));
-  };
+  if (!actionsText) return [];
+
+  // 🧹 Normalize spaces and remove unwanted markdown symbols
+  const normalized = actionsText
+    .replace(/\r/g, "")
+    .replace(/\n\s*\n/g, "\n")
+    .replace(/\n/g, " ")
+    .replace(/\s+/g, " ")
+    .replace(/\*/g, "") // remove all asterisks from text
+    .replace(/\s{2,}/g, " ")
+    .trim();
+
+  // 🧩 Match flexible markdown or plain list formats
+  const regex =
+    /Description\s*[:-]?\s*(.*?)\s*Assignee\s*[:-]?\s*(.*?)\s*Deadline\s*[:-]?\s*(.*?)\s*Priority\s*[:-]?\s*(.*?)(?=Description|$)/gis;
+
+  const matches = [...normalized.matchAll(regex)];
+
+  // console.log("🧠 Regex matches found:", matches.length);
+
+  return matches.map((match, index) => {
+    const clean = (text) => text.replace(/\*/g, "").trim();
+    // console.log(`🎯 Parsed Action ${index + 1}:`, match);
+    return {
+      description: clean(match[1]),
+      assignee: clean(match[2]),
+      deadline: clean(match[3]),
+      priority: clean(match[4]),
+    };
+  });
+};
+
+
+
+
+// console.log("📝 Actions Text:", results.actions || results.content || results.summary?.summary);
+
+
 
   let actionItems = [];
   if (results.actions) actionItems = parseActionItems(results.actions);
@@ -99,6 +125,7 @@ function Results({ results }) {
 
       {/* Action Items */}
       <section style={{ marginBottom: 20 }}>
+        
         <h3 style={{ color: "#e67e22" }}>Action Items</h3>
         {actionItems.length > 0 ? (
           <div style={{ overflowX: "auto" }}>

@@ -28,6 +28,8 @@ This application leverages **LangChain**, **LangGraph**, and **Groq AI** for LLM
     - Multi-language support.  
     - Diarized transcripts for speaker identification.
 
+    ![Upload Meeting Audio](assets/upload-tab.png)
+
 2. **Summarization** ✍️  
     - Generates concise summaries highlighting decisions, outcomes, and discussion points.  
     - Industry-specific summaries (Finance, Healthcare, Marketing, Education).
@@ -39,6 +41,8 @@ This application leverages **LangChain**, **LangGraph**, and **Groq AI** for LLM
 4. **Real-Time Q&A Chat** 💬  
     - Floating AI assistant for asking questions based on latest meeting transcript and summary.
 
+    ![Live Q&A Chat](assets/live-Q&A-chat.png)
+
 5. **Feedback Collection** 🌟  
     - Users can submit ratings and comments for each meeting.
 
@@ -48,8 +52,23 @@ This application leverages **LangChain**, **LangGraph**, and **Groq AI** for LLM
     - Sentiment analysis (Positive, Neutral, Negative) for insights.  
     - Industry-specific analytics.
 
+    ![Dashboard](assets/dashboard-tab.png)
+
+
 7. **Slack Notifications** 🔔  
     - Optional automated Slack notifications with summaries and action items.
+
+
+8. **Real-Time Recording** 🎤  
+    - Capture live meetings and stream for real-time transcription.  
+
+    ![Real-Time](assets/real-time-tab.png)
+
+9. **Meeting Results** 📝  
+    - View extracted action items, summaries, and diarized transcripts.  
+
+    ![Result 1](assets/result-tab.png)  
+    ![Result 2](assets/result-tab-2.png)
 
 ---
 
@@ -89,6 +108,7 @@ frontend/
 │   └── index.js
 uploads/      # Auto-generated files (gitignored)
 instance/     # Database (gitignored)
+assets/       # Screenshots
 ```
 
 ---
@@ -143,7 +163,7 @@ source venv/bin/activate  # Linux/macOS
 venv\Scripts\activate     # Windows
 pip install -r requirements.txt
 cp .env.example .env      # Fill API keys and configs
-uvicorn src.api:app --reload
+uvicorn src.interfaces.api:app --reload
 ```
 
 ### Frontend
