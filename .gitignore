@@ -1,0 +1,85 @@
+# =========================================
+# 🧠 MEETING NOTES GENERATOR - GITIGNORE
+# =========================================
+
+# --- Python / FastAPI ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+*.pid
+*.env
+.env.*
+.env.local
+instance/
+.venv/
+venv/
+env/
+ENV/
+.idea/
+.vscode/
+
+# --- Build / Distribution ---
+build/
+dist/
+*.egg-info/
+.eggs/
+*.manifest
+*.spec
+
+# --- Uvicorn / FastAPI temp files ---
+*.sqlite
+*.db-journal
+
+# --- AI / LangChain Cache ---
+.cache/
+langchain_cache/
+tmp/
+temp/
+
+# --- Audio Files (generated meeting recordings) ---
+*.wav
+*.mp3
+*.m4a
+
+# --- Node / React Frontend ---
+frontend/node_modules/
+frontend/.pnp/
+frontend/.pnp.js
+frontend/build/
+frontend/.env
+frontend/.env.local
+frontend/.DS_Store
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/package-lock.json
+frontend/.eslintcache
+
+# --- OS Specific ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Logs ---
+logs/
+*.log
+log.txt
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- IDE Specific ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- Backup / Temporary Files ---
+*.bak
+*.tmp
+*.old
+*~

@@ -1,0 +1,58 @@
+langchain
+langchain-community
+langchain-groq
+langgraph
+pydantic
+python-dotenv
+click
+openai
+fastapi
+uvicorn  # For running the API
+slack-sdk  # For notifications
+spacy  # For sentiment (download model: python -m spacy download en_core_web_sm)
+tenacity  # Retries
+# sqlite3 is built-in with Python and does not need to be installed via pip
+pyaudio  # For real-time audio capture (requires system deps: e.g., apt install portaudio19-dev)
+python-multipart
+
+fastapi-socketio
+
+# FastAPI for API
+fastapi==0.111.0
+uvicorn[standard]==0.23.0
+
+# CORS Middleware
+fastapi.middleware.cors==0.1.0
+
+# Socket.io
+python-socketio[asyncio_client]==5.9.0
+fastapi-socketio==0.4.4
+
+# Database
+# sqlite3  # Built-in with Python, no need to install
+
+# Audio Processing
+pyaudio==0.2.13
+# wave  # Built-in with Python
+
+# LangChain & LangGraph for AI workflow
+langchain==0.1.0  # Adjust based on your version
+langgraph==0.0.1  # Adjust based on your version
+langchain_groq==0.0.1  # Adjust based on your version
+
+# JSON and typing
+typing-extensions==4.7.1
+
+# Logging
+loguru==0.7.0
+
+# Optional Utilities
+python-dotenv==1.0.0  # For environment variables
+
+# Frontend serving (if needed)
+aiofiles==23.2.0
+
+# For making HTTP requests if needed
+requests==2.31.0
+
+# Others
